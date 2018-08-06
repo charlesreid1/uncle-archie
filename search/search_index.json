@@ -1,0 +1,14 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "uncle-jenkins\n\u00b6\n\n\nUncle Jenkins\n is a homebrew continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).\n\n\nUncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.\n\n\nDocumentation (you are here): \nhttps://pages.charlesreid1.com/uncle-jenkins\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-jenkins\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-jenkins",
+            "title": "Index"
+        },
+        {
+            "location": "/#uncle-jenkins",
+            "text": "Uncle Jenkins  is a homebrew continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).  Uncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.  Documentation (you are here):  https://pages.charlesreid1.com/uncle-jenkins  Source code:  https://git.charlesreid1.com/bots/uncle-jenkins  Source code mirror:  https://github.com/charlesreid1/uncle-jenkins",
+            "title": "uncle-jenkins"
+        }
+    ]
+}

@@ -2,13 +2,88 @@
     "docs": [
         {
             "location": "/",
-            "text": "uncle-jenkins\n\u00b6\n\n\nUncle Jenkins\n is a homebrew continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).\n\n\nUncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.\n\n\nDocumentation (you are here): \nhttps://pages.charlesreid1.com/uncle-jenkins\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-jenkins\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-jenkins",
+            "text": "uncle-jenkins\n\u00b6\n\n\nUncle Jenkins\n is a homebrew continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).\n\n\nUncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.\n\n\nTable of Contents\n\u00b6\n\n\ninstalling jenkins\n\n\nnginx and jenkins\n\n\nset up jenkins\n\n\ngithub pull request builder\n\n\nLinks\n\u00b6\n\n\nDocumentation (you are here): \nhttps://pages.charlesreid1.com/uncle-jenkins\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-jenkins\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-jenkins",
             "title": "Index"
         },
         {
             "location": "/#uncle-jenkins",
-            "text": "Uncle Jenkins  is a homebrew continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).  Uncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.  Documentation (you are here):  https://pages.charlesreid1.com/uncle-jenkins  Source code:  https://git.charlesreid1.com/bots/uncle-jenkins  Source code mirror:  https://github.com/charlesreid1/uncle-jenkins",
+            "text": "Uncle Jenkins  is a homebrew continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).  Uncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.",
             "title": "uncle-jenkins"
+        },
+        {
+            "location": "/#table-of-contents",
+            "text": "installing jenkins  nginx and jenkins  set up jenkins  github pull request builder",
+            "title": "Table of Contents"
+        },
+        {
+            "location": "/#links",
+            "text": "Documentation (you are here):  https://pages.charlesreid1.com/uncle-jenkins  Source code:  https://git.charlesreid1.com/bots/uncle-jenkins  Source code mirror:  https://github.com/charlesreid1/uncle-jenkins",
+            "title": "Links"
+        },
+        {
+            "location": "/installing/",
+            "text": "installing jenkins\n\u00b6\n\n\nTo install jenkins, we use aptitude, which installs\nJenkins as a system service:\n\n\nwget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -\necho deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list\nsudo apt-get update\nsudo apt-get install jenkins\nsudo systemctl start jenkins",
+            "title": "Installing Jenkins"
+        },
+        {
+            "location": "/installing/#installing-jenkins",
+            "text": "To install jenkins, we use aptitude, which installs\nJenkins as a system service:  wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -\necho deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list\nsudo apt-get update\nsudo apt-get install jenkins\nsudo systemctl start jenkins",
+            "title": "installing jenkins"
+        },
+        {
+            "location": "/nginx/",
+            "text": "nginx and jenkins\n\u00b6\n\n\nsome background\n\u00b6\n\n\nwhat is nginx?\n\u00b6\n\n\nnginx is a web server that can allow for a lot more flexibility\nin routing domain names and web traffic from the frontend to\nvarious backend servers.\n\n\nOne of the more useful functionalities in nginx is the ability to\nset up a reverse proxy.\n\n\nwhat is a reverse proxy?\n\u00b6\n\n\nA proxy is defined as \nthe authority to represent someone else\n.\nTypically a proxy is set up to \"surround\" and \"wrap\" actions that\nthe user takes, and relay them to the \"outside world\" (i.e., the \nworld beyond the proxy).\n\n\nA reverse proxy means that instead of \"surrounding\" and \"wrapping\"\nthe client, a reverse proxy wraps the end server. That means that\nany requests for , say, \nhttps://jenkins.mydomain.com\n can be reverse \nproxied to \nhttp://localhost:8080/\n, where an instance of Jenkins\nis running.\n\n\nThe advantage of this is that Jenkins is not accessible via port\n8080 to outside users. Every request must pass through nginx.\n\n\ninstalling nginx\n\u00b6\n\n\nrecommend using your operating system's package manager.\n\n\napt-get install nginx\n\n\n\n\n\nOn ubuntu, this will install configuration files to\n\n\n/etc/nginx/\n\n\n\n\n\nand will make nginx a service that can be started/stopped with:\n\n\nsudo service nginx start\nsudo service nginx stop\n\n\n\n\n\nnginx configuration\n\u00b6\n\n\nWhat follows is an nginx configuration file for\nusing Jenkins behind an nginx reverse proxy, and\nmaking it available via a subdomain like \njenkins.mysite.com\n.\n\n\nHere is the nginx configuration file and the location\non disk where it should be using an aptitude-installed\nnginx:\n\n\n/etc/nginx/sites-available/jenkins.conf\n\n\n# jenkins service is available at localhost:8080\n\nserver {\n    listen 80;\n    listen [::]:80;\n    server_name jenkins.mydomain.com;\n    location / {\n        return 301 https://jenkins.mydomain.com$request_uri;\n    }\n}\n\nserver {\n    listen 443;\n    listen [::]:443;\n    server_name jenkins.mydomain.com;\n\n    ssl on;\n    ssl_certificate /etc/letsencrypt/live/jenkins.mydomain.com/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/jenkins.mydomain.com/privkey.pem;\n    include /etc/letsencrypt/options-ssl-nginx.conf;\n\n    location / {\n        proxy_set_header        Host $host:$server_port;\n        proxy_set_header        X-Real-IP $remote_addr;\n        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header        X-Forwarded-Proto $scheme;\n        proxy_redirect http:// https://;\n        proxy_pass              http://localhost:8080;\n        # Required for new HTTP-based CLI\n        proxy_http_version 1.1;\n        proxy_request_buffering off;\n        proxy_buffering off; # Required for HTTP-based CLI to work over SSL\n        # workaround for https://issues.jenkins-ci.org/browse/JENKINS-45651\n        add_header 'X-SSH-Endpoint' 'jenkins.domain.tld:50022' always;\n    }\n}\n\nserver {\n    listen 8081;\n    listen [::]:8081;\n    server_name jenkins.mydomain.com;\n\n    ssl on;\n    ssl_certificate /etc/letsencrypt/live/jenkins.mydomain.com/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/jenkins.mydomain.com/privkey.pem;\n    include /etc/letsencrypt/options-ssl-nginx.conf;\n\n    location / {\n        proxy_set_header        Host $host:$server_port;\n        proxy_set_header        X-Real-IP $remote_addr;\n        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header        X-Forwarded-Proto $scheme;\n        proxy_redirect http:// https://;\n        proxy_pass              http://localhost:8080;\n        # Required for new HTTP-based CLI\n        proxy_http_version 1.1;\n        proxy_request_buffering off;\n        proxy_buffering off; # Required for HTTP-based CLI to work over SSL\n        # workaround for https://issues.jenkins-ci.org/browse/JENKINS-45651\n        add_header 'X-SSH-Endpoint' 'jenkins.domain.tld:50022' always;\n    }\n}\n\n\n\n\n\nThe configuration file (full contents given above) should be copied to\n(requires sudo access):\n\n\n/etc/nginx/sites-available/jenkins.conf\n\n\n\n\n\nThe site should then be enabled by linking this configuration\nfile to the \nsites-enabled\n folder:\n\n\nsudo ln -fs /etc/nginx/sites-available/jenkins.conf /etc/nginx/sites-enabled/\n\n\n\n\n\nNow nginx can be restarted:\n\n\nsudo service nginx restart",
+            "title": "Nginx and Jenkins"
+        },
+        {
+            "location": "/nginx/#nginx-and-jenkins",
+            "text": "",
+            "title": "nginx and jenkins"
+        },
+        {
+            "location": "/nginx/#some-background",
+            "text": "",
+            "title": "some background"
+        },
+        {
+            "location": "/nginx/#what-is-nginx",
+            "text": "nginx is a web server that can allow for a lot more flexibility\nin routing domain names and web traffic from the frontend to\nvarious backend servers.  One of the more useful functionalities in nginx is the ability to\nset up a reverse proxy.",
+            "title": "what is nginx?"
+        },
+        {
+            "location": "/nginx/#what-is-a-reverse-proxy",
+            "text": "A proxy is defined as  the authority to represent someone else .\nTypically a proxy is set up to \"surround\" and \"wrap\" actions that\nthe user takes, and relay them to the \"outside world\" (i.e., the \nworld beyond the proxy).  A reverse proxy means that instead of \"surrounding\" and \"wrapping\"\nthe client, a reverse proxy wraps the end server. That means that\nany requests for , say,  https://jenkins.mydomain.com  can be reverse \nproxied to  http://localhost:8080/ , where an instance of Jenkins\nis running.  The advantage of this is that Jenkins is not accessible via port\n8080 to outside users. Every request must pass through nginx.",
+            "title": "what is a reverse proxy?"
+        },
+        {
+            "location": "/nginx/#installing-nginx",
+            "text": "recommend using your operating system's package manager.  apt-get install nginx  On ubuntu, this will install configuration files to  /etc/nginx/  and will make nginx a service that can be started/stopped with:  sudo service nginx start\nsudo service nginx stop",
+            "title": "installing nginx"
+        },
+        {
+            "location": "/nginx/#nginx-configuration",
+            "text": "What follows is an nginx configuration file for\nusing Jenkins behind an nginx reverse proxy, and\nmaking it available via a subdomain like  jenkins.mysite.com .  Here is the nginx configuration file and the location\non disk where it should be using an aptitude-installed\nnginx:  /etc/nginx/sites-available/jenkins.conf  # jenkins service is available at localhost:8080\n\nserver {\n    listen 80;\n    listen [::]:80;\n    server_name jenkins.mydomain.com;\n    location / {\n        return 301 https://jenkins.mydomain.com$request_uri;\n    }\n}\n\nserver {\n    listen 443;\n    listen [::]:443;\n    server_name jenkins.mydomain.com;\n\n    ssl on;\n    ssl_certificate /etc/letsencrypt/live/jenkins.mydomain.com/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/jenkins.mydomain.com/privkey.pem;\n    include /etc/letsencrypt/options-ssl-nginx.conf;\n\n    location / {\n        proxy_set_header        Host $host:$server_port;\n        proxy_set_header        X-Real-IP $remote_addr;\n        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header        X-Forwarded-Proto $scheme;\n        proxy_redirect http:// https://;\n        proxy_pass              http://localhost:8080;\n        # Required for new HTTP-based CLI\n        proxy_http_version 1.1;\n        proxy_request_buffering off;\n        proxy_buffering off; # Required for HTTP-based CLI to work over SSL\n        # workaround for https://issues.jenkins-ci.org/browse/JENKINS-45651\n        add_header 'X-SSH-Endpoint' 'jenkins.domain.tld:50022' always;\n    }\n}\n\nserver {\n    listen 8081;\n    listen [::]:8081;\n    server_name jenkins.mydomain.com;\n\n    ssl on;\n    ssl_certificate /etc/letsencrypt/live/jenkins.mydomain.com/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/jenkins.mydomain.com/privkey.pem;\n    include /etc/letsencrypt/options-ssl-nginx.conf;\n\n    location / {\n        proxy_set_header        Host $host:$server_port;\n        proxy_set_header        X-Real-IP $remote_addr;\n        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header        X-Forwarded-Proto $scheme;\n        proxy_redirect http:// https://;\n        proxy_pass              http://localhost:8080;\n        # Required for new HTTP-based CLI\n        proxy_http_version 1.1;\n        proxy_request_buffering off;\n        proxy_buffering off; # Required for HTTP-based CLI to work over SSL\n        # workaround for https://issues.jenkins-ci.org/browse/JENKINS-45651\n        add_header 'X-SSH-Endpoint' 'jenkins.domain.tld:50022' always;\n    }\n}  The configuration file (full contents given above) should be copied to\n(requires sudo access):  /etc/nginx/sites-available/jenkins.conf  The site should then be enabled by linking this configuration\nfile to the  sites-enabled  folder:  sudo ln -fs /etc/nginx/sites-available/jenkins.conf /etc/nginx/sites-enabled/  Now nginx can be restarted:  sudo service nginx restart",
+            "title": "nginx configuration"
+        },
+        {
+            "location": "/setup/",
+            "text": "set up jenkins\n\u00b6\n\n\nTo set up Jenkins, visit the configuration page.\n\n\nIf you are running Jenkins behind a reverse proxy,\nmake sure that the URL that takes you to nginx\nis the same URL configured in the Jenkins \nconfiguration page.",
+            "title": "Set Up Jenkins"
+        },
+        {
+            "location": "/setup/#set-up-jenkins",
+            "text": "To set up Jenkins, visit the configuration page.  If you are running Jenkins behind a reverse proxy,\nmake sure that the URL that takes you to nginx\nis the same URL configured in the Jenkins \nconfiguration page.",
+            "title": "set up jenkins"
+        },
+        {
+            "location": "/ghprb/",
+            "text": "github pull request builder (ghprb) plugin\n\u00b6\n\n\nThis is a plugin that allows Jenkins to run\nPipelines to do pull request checks.\n\n\ngithub link",
+            "title": "Github Pull Request Builder"
+        },
+        {
+            "location": "/ghprb/#github-pull-request-builder-ghprb-plugin",
+            "text": "This is a plugin that allows Jenkins to run\nPipelines to do pull request checks.  github link",
+            "title": "github pull request builder (ghprb) plugin"
         }
     ]
 }

@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "uncle-jenkins\n\u00b6\n\n\nUncle Jenkins\n is a home-brewed continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).\n\n\nUncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.\n\n\nTable of Contents\n\u00b6\n\n\nPreparing Jenkins:\n\n\n\n\nPreparing Jenkins\n\n\nInstalling Jenkins\n\n\nNginx and Jenkins\n\n\n\n\nConfiguring Jenkins\n\n\n\n\n\n\nJenkins Plugins: \n\n\n\n\nInstalling Plugins\n\n\n\n\nGithub Pull Request Builder\n\n\n\n\n\n\nPipelines:\n\n\n\n\nPull Request Reviews\n (in progress)\n\n\n\n\nLinks\n\u00b6\n\n\nDocumentation (you are here): \nhttps://pages.charlesreid1.com/uncle-jenkins\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-jenkins\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-jenkins",
+            "text": "uncle-jenkins\n\u00b6\n\n\nUncle Jenkins\n is a home-brewed continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy).\n\n\nUncle Jenkins is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires the server running \nUncle Jenkins be accessible at a domain name, and not just be\na bare IP address.\n\n\nTable of Contents\n\u00b6\n\n\nPreparing Jenkins:\n\n\n\n\n\n\nPreparing Jenkins:\n\n\n\n\nInstalling Jenkins\n\n\nNginx and Jenkins\n\n\nConfiguring Jenkins\n\n\n\n\n\n\n\n\nJenkins Plugins: \n\n\n\n\nInstalling Plugins\n\n\nGithub Pull Request Builder\n\n\n\n\n\n\n\n\nPipelines:\n\n\n\n\nPull Request Reviews\n (in progress)\n\n\n\n\n\n\n\n\nLinks\n\u00b6\n\n\nDocumentation (you are here): \nhttps://pages.charlesreid1.com/uncle-jenkins\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-jenkins\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-jenkins",
             "title": "Index"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-contents",
-            "text": "Preparing Jenkins:   Preparing Jenkins  Installing Jenkins  Nginx and Jenkins   Configuring Jenkins    Jenkins Plugins:    Installing Plugins   Github Pull Request Builder    Pipelines:   Pull Request Reviews  (in progress)",
+            "text": "Preparing Jenkins:    Preparing Jenkins:   Installing Jenkins  Nginx and Jenkins  Configuring Jenkins     Jenkins Plugins:    Installing Plugins  Github Pull Request Builder     Pipelines:   Pull Request Reviews  (in progress)",
             "title": "Table of Contents"
         },
         {

@@ -389,12 +389,19 @@
     configuring jenkins GHPRB plugin
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-configuration" title="basic configuration" class="md-nav__link">
+    basic configuration
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-configuration-authenticating-with-github-api" title="basic configuration: authenticating with Github API" class="md-nav__link">
-    basic configuration: authenticating with Github API
+  <a href="#authenticating-with-the-github-api" title="authenticating with the Github API" class="md-nav__link">
+    authenticating with the Github API
   </a>
   
 </li>
@@ -466,12 +473,19 @@
     configuring jenkins GHPRB plugin
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-configuration" title="basic configuration" class="md-nav__link">
+    basic configuration
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-configuration-authenticating-with-github-api" title="basic configuration: authenticating with Github API" class="md-nav__link">
-    basic configuration: authenticating with Github API
+  <a href="#authenticating-with-the-github-api" title="authenticating with the Github API" class="md-nav__link">
+    authenticating with the Github API
   </a>
   
 </li>
@@ -557,7 +571,8 @@ repo</a>
   below.</p>
 </li>
 </ul>
-<h3 id="basic-configuration-authenticating-with-github-api">basic configuration: authenticating with Github API<a class="headerlink" href="#basic-configuration-authenticating-with-github-api" title="Permanent link">&para;</a></h3>
+<h2 id="basic-configuration">basic configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="authenticating-with-the-github-api">authenticating with the Github API<a class="headerlink" href="#authenticating-with-the-github-api" title="Permanent link">&para;</a></h3>
 <p>Click the "Add" button next to credentials and select Jenkins as your 
 credentials provider. Create a credential of Kind "Secret Text".
 For the Secret, you will enter a Github Personal Access Token,
@@ -610,6 +625,24 @@ to attempt to leave the comment specified in the text box in the pull
 request thread.</p>
 <p>Here's what it should look like if everything goes according to plan:</p>
 <p><img src="/images/jenkins-ghprb-5-test-5.png" width="500px" /></p>
+<p>Let's keep moving through the tests, there is still one more to get through!</p>
+<p>The last test is the most important, and that is testing whether the Jenkins
+server can mark a pull request as passing or failing checks, or whether they
+resulted in an error.</p>
+<p>Click the "Test updating commit status" button and it will give several
+options to set. For the commit hash, use the commit hash of the single
+commit in the pull request. We will test setting the state to FAILURE.</p>
+<p>The other settings will make more sense in context, but we can set a
+URL that links to a page with more details on the build, a message
+to post about the failure, and some context (more info).</p>
+<p>Here is what the settings look like filled out:</p>
+<p><img src="/images/jenkins-ghprb-5-test-6.png" width="500px" /></p>
+<p>When "Update Status" is clicked it results in the following change to
+the pull request page:</p>
+<p><img src="/images/jenkins-ghprb-5-test-7.png" width="500px" /></p>
+<p>Note that the pull request can still be merged, but in the repository
+settings we can require that build checks pass before any pull requests
+can be merged.</p>
                 
                   
                 

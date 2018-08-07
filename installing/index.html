@@ -252,6 +252,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Preparing Jenkins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Preparing Jenkins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
@@ -259,16 +280,66 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Installing Jenkins
+      </label>
+    
     <a href="./" title="Installing Jenkins" class="md-nav__link md-nav__link--active">
       Installing Jenkins
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-jenkins-with-aptitude" title="installing jenkins with aptitude" class="md-nav__link">
+    installing jenkins with aptitude
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startingstopping-the-jenkins-service" title="starting/stopping the jenkins service" class="md-nav__link">
+    starting/stopping the jenkins service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unlocking-jenkins" title="unlocking jenkins" class="md-nav__link">
+    unlocking jenkins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-nginx-proxy" title="installing nginx proxy" class="md-nav__link">
+    installing nginx proxy
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
@@ -277,16 +348,21 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../setup/" title="Set Up Jenkins" class="md-nav__link">
-      Set Up Jenkins
+    <a href="../configuring/" title="Configuring Jenkins" class="md-nav__link">
+      Configuring Jenkins
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -295,10 +371,46 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Jenkins Plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Jenkins Plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../ghprb/" title="Github Pull Request Builder" class="md-nav__link">
+    <a href="../plugins/" title="Installing Plugins" class="md-nav__link">
+      Installing Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../plugins_ghprb/" title="Github Pull Request Builder" class="md-nav__link">
       Github Pull Request Builder
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -319,6 +431,43 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-jenkins-with-aptitude" title="installing jenkins with aptitude" class="md-nav__link">
+    installing jenkins with aptitude
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startingstopping-the-jenkins-service" title="starting/stopping the jenkins service" class="md-nav__link">
+    starting/stopping the jenkins service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unlocking-jenkins" title="unlocking jenkins" class="md-nav__link">
+    unlocking jenkins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-nginx-proxy" title="installing nginx proxy" class="md-nav__link">
+    installing nginx proxy
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -330,15 +479,63 @@
               
                 
                 
-                <h1 id="installing-jenkins">installing jenkins<a class="headerlink" href="#installing-jenkins" title="Permanent link">&para;</a></h1>
+                <h1 id="installing-jenkins">Installing Jenkins<a class="headerlink" href="#installing-jenkins" title="Permanent link">&para;</a></h1>
+<p>These instructions assume you are running Ubuntu 16.04.</p>
+<ul>
+<li>
+<p>See the <a href="https://jenkins.io/doc/book/installing/">jenkins installation page</a>
+  on jenkins.io for coverage of other platforms.</p>
+</li>
+<li>
+<p>See <a href="https://jenkins.io/download/">jenkins download page</a> on jenkins.io
+  to download jenkins for your platform.</p>
+</li>
+</ul>
+<h2 id="installing-jenkins-with-aptitude">installing jenkins with aptitude<a class="headerlink" href="#installing-jenkins-with-aptitude" title="Permanent link">&para;</a></h2>
 <p>To install jenkins, we use aptitude, which installs
-Jenkins as a system service:</p>
+jenkins as a system service:</p>
 <div class="codehilite"><pre><span></span>wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
 sudo apt-get update
 sudo apt-get install jenkins
-sudo systemctl start jenkins
 </pre></div>
+
+
+<p>Now start jenkins running on port 8080:</p>
+<div class="codehilite"><pre><span></span>sudo systemctl start jenkins
+</pre></div>
+
+
+<h2 id="startingstopping-the-jenkins-service">starting/stopping the jenkins service<a class="headerlink" href="#startingstopping-the-jenkins-service" title="Permanent link">&para;</a></h2>
+<p>Jenkins will be installed as a system service, so it can be 
+started and stopped using systemctl:</p>
+<div class="codehilite"><pre><span></span>sudo systemctl start jenkins
+sudo systemctl stop jenkins
+sudo systemctl restart jenkins
+</pre></div>
+
+
+<h2 id="unlocking-jenkins">unlocking jenkins<a class="headerlink" href="#unlocking-jenkins" title="Permanent link">&para;</a></h2>
+<p>Verify your installation went okay by visiting
+<code>http://&lt;server-ip&gt;:8080</code> in your browser. You should
+be asked for an admin password, available in the file
+<code>/var/lib/jenkins/secrets/initialAdminPassword</code>:</p>
+<div class="codehilite"><pre><span></span>sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+</pre></div>
+
+
+<p>You can set a new user/password, or you can use
+the admin username with the alphanumeric string in
+the above file as the password.</p>
+<p>Once you set up an admin user, you should now see
+the following login page when you visit your jenkins
+instance:</p>
+<p><img src="/images/jenkins-login-pre.png" width="500px" /></p>
+<h2 id="installing-nginx-proxy">installing nginx proxy<a class="headerlink" href="#installing-nginx-proxy" title="Permanent link">&para;</a></h2>
+<p>If you are running Jenkins behind an nginx server (optional), 
+this is the proper time to set up the nginx server to reverse 
+proxy Jenkins.</p>
+<p>See <a href="../nginx/">nginx and jenkins</a></p>
                 
                   
                 

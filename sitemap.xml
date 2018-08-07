@@ -2,27 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://pages.charlesreid1.com/uncle-jenkins/</loc>
-     <lastmod>2018-08-05</lastmod>
+     <lastmod>2018-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://pages.charlesreid1.com/uncle-jenkins/installing/</loc>
-     <lastmod>2018-08-05</lastmod>
+     <lastmod>2018-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://pages.charlesreid1.com/uncle-jenkins/nginx/</loc>
-     <lastmod>2018-08-05</lastmod>
+     <lastmod>2018-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/setup/</loc>
-     <lastmod>2018-08-05</lastmod>
+     <loc>https://pages.charlesreid1.com/uncle-jenkins/configuring/</loc>
+     <lastmod>2018-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/ghprb/</loc>
-     <lastmod>2018-08-05</lastmod>
+     <loc>https://pages.charlesreid1.com/uncle-jenkins/plugins/</loc>
+     <lastmod>2018-08-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://pages.charlesreid1.com/uncle-jenkins/plugins_ghprb/</loc>
+     <lastmod>2018-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://pages.charlesreid1.com/uncle-jenkins/nginx/">
+        <link rel="canonical" href="https://pages.charlesreid1.com/uncle-jenkins/plugins_ghprb/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Nginx and Jenkins - uncle-jenkins</title>
+        <title>Github Pull Request Builder - uncle-jenkins</title>
       
     
     
@@ -97,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#nginx-and-jenkins" tabindex="1" class="md-skip">
+      <a href="#github-pull-request-builder-ghprb-jenkins-plugin" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -123,7 +123,7 @@
                 uncle-jenkins
               </span>
               <span class="md-header-nav__topic">
-                Nginx and Jenkins
+                Github Pull Request Builder
               </span>
             
           
@@ -249,12 +249,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Preparing Jenkins
@@ -282,83 +280,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Nginx and Jenkins
-      </label>
-    
-    <a href="./" title="Nginx and Jenkins" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../nginx/" title="Nginx and Jenkins" class="md-nav__link">
       Nginx and Jenkins
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#background" title="background" class="md-nav__link">
-    background
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-nginx" title="what is nginx?" class="md-nav__link">
-    what is nginx?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-is-a-reverse-proxy" title="what is a reverse proxy?" class="md-nav__link">
-    what is a reverse proxy?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-steps-installing-nginx" title="first steps: installing nginx" class="md-nav__link">
-    first steps: installing nginx
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-nginx" title="configuring nginx" class="md-nav__link">
-    configuring nginx
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -383,10 +309,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Jenkins Plugins
@@ -414,11 +342,83 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../plugins_ghprb/" title="Github Pull Request Builder" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Github Pull Request Builder
+      </label>
+    
+    <a href="./" title="Github Pull Request Builder" class="md-nav__link md-nav__link--active">
       Github Pull Request Builder
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installing-jenkins-ghprb-plugin" title="installing jenkins GHPRB plugin" class="md-nav__link">
+    installing jenkins GHPRB plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-to-the-jenkins-configuration-page" title="getting to the jenkins configuration page" class="md-nav__link">
+    getting to the jenkins configuration page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-jenkins-ghprb-plugin" title="configuring jenkins GHPRB plugin" class="md-nav__link">
+    configuring jenkins GHPRB plugin
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-configuration-authenticating-with-github-api" title="basic configuration: authenticating with Github API" class="md-nav__link">
+    basic configuration: authenticating with Github API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-authentication-with-github" title="testing authentication with Github" class="md-nav__link">
+    testing authentication with Github
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -448,43 +448,43 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" title="background" class="md-nav__link">
-    background
+  <a href="#installing-jenkins-ghprb-plugin" title="installing jenkins GHPRB plugin" class="md-nav__link">
+    installing jenkins GHPRB plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-to-the-jenkins-configuration-page" title="getting to the jenkins configuration page" class="md-nav__link">
+    getting to the jenkins configuration page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-jenkins-ghprb-plugin" title="configuring jenkins GHPRB plugin" class="md-nav__link">
+    configuring jenkins GHPRB plugin
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-nginx" title="what is nginx?" class="md-nav__link">
-    what is nginx?
+  <a href="#basic-configuration-authenticating-with-github-api" title="basic configuration: authenticating with Github API" class="md-nav__link">
+    basic configuration: authenticating with Github API
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-is-a-reverse-proxy" title="what is a reverse proxy?" class="md-nav__link">
-    what is a reverse proxy?
+  <a href="#testing-authentication-with-github" title="testing authentication with Github" class="md-nav__link">
+    testing authentication with Github
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-steps-installing-nginx" title="first steps: installing nginx" class="md-nav__link">
-    first steps: installing nginx
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-nginx" title="configuring nginx" class="md-nav__link">
-    configuring nginx
-  </a>
   
 </li>
       
@@ -505,140 +505,111 @@
               
                 
                 
-                <h1 id="nginx-and-jenkins">Nginx and Jenkins<a class="headerlink" href="#nginx-and-jenkins" title="Permanent link">&para;</a></h1>
-<h2 id="background">background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-nginx">what is nginx?<a class="headerlink" href="#what-is-nginx" title="Permanent link">&para;</a></h3>
-<p>nginx is a web server that can allow for a lot more flexibility
-in routing domain names and web traffic from the frontend to
-various backend servers.</p>
-<p>One of the more useful functionalities in nginx is the ability to
-set up a reverse proxy.</p>
-<h3 id="what-is-a-reverse-proxy">what is a reverse proxy?<a class="headerlink" href="#what-is-a-reverse-proxy" title="Permanent link">&para;</a></h3>
-<p>A proxy is defined as <em>the authority to represent someone else</em>.
-Typically a proxy is set up to "surround" and "wrap" actions that
-the user takes, and relay them to the "outside world" (i.e., the 
-world beyond the proxy).</p>
-<p>A reverse proxy means that instead of "surrounding" and "wrapping"
-the client, a reverse proxy wraps the end server. That means that
-any requests for , say, <code>https://jenkins.mydomain.com</code> can be reverse 
-proxied to <code>http://localhost:8080/</code>, where an instance of Jenkins
-is running.</p>
-<p>The advantage of this is that Jenkins is not accessible via port
-8080 to outside users. Every request must pass through nginx.</p>
-<h2 id="first-steps-installing-nginx">first steps: installing nginx<a class="headerlink" href="#first-steps-installing-nginx" title="Permanent link">&para;</a></h2>
-<p>recommend using your operating system's package manager.</p>
-<div class="codehilite"><pre><span></span>apt-get install nginx
-</pre></div>
-
-
-<p>On ubuntu, this will install configuration files to</p>
-<div class="codehilite"><pre><span></span>/etc/nginx/
-</pre></div>
-
-
-<p>and will make nginx a service that can be started/stopped with:</p>
-<div class="codehilite"><pre><span></span>sudo service nginx start
-sudo service nginx stop
-</pre></div>
-
-
-<h2 id="configuring-nginx">configuring nginx<a class="headerlink" href="#configuring-nginx" title="Permanent link">&para;</a></h2>
-<p>What follows is an nginx configuration file for
-using Jenkins behind an nginx reverse proxy, and
-making it available via a subdomain like <code>jenkins.mysite.com</code>.</p>
-<p><strong>NOTE: As a reminder the local Jenkins server is available at
-<code>localhost:8080</code>.</strong></p>
-<p>Here is the nginx configuration file and the location
-on disk where it should be using an aptitude-installed
-nginx:</p>
-<p><strong><code>/etc/nginx/sites-available/jenkins.conf</code></strong></p>
-<div class="codehilite"><pre><span></span>server {
-    listen 80;
-    listen [::]:80;
-    server_name jenkins.mydomain.com;
-    location / {
-        return 301 https://jenkins.mydomain.com$request_uri;
-    }
-}
-
-server {
-    listen 443;
-    listen [::]:443;
-    server_name jenkins.mydomain.com;
-
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/jenkins.mydomain.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/jenkins.mydomain.com/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-
-    location / {
-        proxy_set_header        Host $host:$server_port;
-        proxy_set_header        X-Real-IP $remote_addr;
-        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header        X-Forwarded-Proto $scheme;
-        proxy_redirect http:// https://;
-        proxy_pass              http://localhost:8080;
-        # Required for new HTTP-based CLI
-        proxy_http_version 1.1;
-        proxy_request_buffering off;
-        proxy_buffering off; # Required for HTTP-based CLI to work over SSL
-        # workaround for https://issues.jenkins-ci.org/browse/JENKINS-45651
-        add_header &#39;X-SSH-Endpoint&#39; &#39;jenkins.domain.tld:50022&#39; always;
-    }
-}
-</pre></div>
-
-
-<p>Alternatively, if you want your server to be publicly available on a non-standard 
-port, but still use SSL, for example being available at</p>
-<div class="codehilite"><pre><span></span>https://jenkins.mydomain.com:8081
-</pre></div>
-
-
-<p>then you can remove the port 80 redirect and change port 443 to 8081:</p>
-<div class="codehilite"><pre><span></span>server {
-    listen 8081;
-    listen [::]:8081;
-    server_name jenkins.mydomain.com;
-
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/jenkins.mydomain.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/jenkins.mydomain.com/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-
-    location / {
-        proxy_set_header        Host $host:$server_port;
-        proxy_set_header        X-Real-IP $remote_addr;
-        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header        X-Forwarded-Proto $scheme;
-        proxy_redirect http:// https://;
-        proxy_pass              http://localhost:8080;
-        # Required for new HTTP-based CLI
-        proxy_http_version 1.1;
-        proxy_request_buffering off;
-        proxy_buffering off; # Required for HTTP-based CLI to work over SSL
-        # workaround for https://issues.jenkins-ci.org/browse/JENKINS-45651
-        add_header &#39;X-SSH-Endpoint&#39; &#39;jenkins.domain.tld:50022&#39; always;
-    }
-}
-</pre></div>
-
-
-<p>The configuration file (full contents given above) should be copied to
-(requires sudo access):</p>
-<div class="codehilite"><pre><span></span>/etc/nginx/sites-available/jenkins.conf
-</pre></div>
-
-
-<p>The site should then be enabled by linking this configuration
-file to the <code>sites-enabled</code> folder:</p>
-<div class="codehilite"><pre><span></span>sudo ln -fs /etc/nginx/sites-available/jenkins.conf /etc/nginx/sites-enabled/
-</pre></div>
-
-
-<p>Now nginx can be restarted:</p>
-<div class="codehilite"><pre><span></span>sudo service nginx restart
-</pre></div>
+                <h1 id="github-pull-request-builder-ghprb-jenkins-plugin">Github Pull Request Builder (GHPRB) Jenkins Plugin<a class="headerlink" href="#github-pull-request-builder-ghprb-jenkins-plugin" title="Permanent link">&para;</a></h1>
+<p>Also see the <a href="../plugins/">plugins</a> page.</p>
+<h2 id="installing-jenkins-ghprb-plugin">installing jenkins GHPRB plugin<a class="headerlink" href="#installing-jenkins-ghprb-plugin" title="Permanent link">&para;</a></h2>
+<p>To enable Jenkins to build Pull Requests and act as a PR check, we need
+to install the "Github Pull Request Builder" plugin into Jenkins.</p>
+<p>Use Control + F to search for "Github Pull Request Builder" and check
+the box next to it. Then click the button at the bottom that says
+"Install without restart."</p>
+<p>Now click the Installed tab on the plugin manager page to see a list
+of plugins that are installed on the server: </p>
+<p><img src="/images/jenkins-pm-inst.png" width="500px" /></p>
+<p>Control + F search for "Github Pull Request Builder" and you should
+see it come up:</p>
+<p><img src="/images/jenkins-pm-inst-2.png" width="500px" /></p>
+<p>Don't bother clicking the link, since it will take you to
+the Jenkins wiki page for the plugin. </p>
+<h2 id="getting-to-the-jenkins-configuration-page">getting to the jenkins configuration page<a class="headerlink" href="#getting-to-the-jenkins-configuration-page" title="Permanent link">&para;</a></h2>
+<p>To configure the GHPRB plugin, start from the home view:</p>
+<p><img src="/images/jenkins-login-post.png" width="500px" /></p>
+<p>After clicking "Manage Jenkins" on the left, you should see a list of menu items:</p>
+<p><img src="/images/jenkins-manage.png" width="500px" /></p>
+<p>After clicking the first item, "Configure System", you should see a page with
+many sections:</p>
+<p><img src="/images/jenkins-configure.png" width="500px" /></p>
+<p>Let's go through how to set up the pull request build plugin
+to properly authenticate with Github.</p>
+<h2 id="configuring-jenkins-ghprb-plugin">configuring jenkins GHPRB plugin<a class="headerlink" href="#configuring-jenkins-ghprb-plugin" title="Permanent link">&para;</a></h2>
+<p>Note: these steps are based largely on the README in the
+<a href="https://github.com/jenkinsci/ghprb-plugin/blob/master/README.md">Github Pull Request Builder plugin
+repo</a>
+(on Github, of course).</p>
+<p>Once at the configuration page, scroll down to the section titled
+"Github Pull Request Builder" (or Control + F it).</p>
+<p><img src="/images/jenkins-ghprb-1.png" width="500px" /></p>
+<p>This has a couple of key fields:</p>
+<ul>
+<li>
+<p>Github server API URL: this is for Github Enterprise users; leave as is if
+  using Github.com</p>
+</li>
+<li>
+<p>Credentials: this is where we will add our Github credentials (log in under
+  the bot account we want Jenkins to use).</p>
+</li>
+<li>
+<p>Connect to API: we will use this to test our credentials.</p>
+</li>
+<li>
+<p>Advanced: this button will open up a whole host of options. These are covered
+  below.</p>
+</li>
+</ul>
+<h3 id="basic-configuration-authenticating-with-github-api">basic configuration: authenticating with Github API<a class="headerlink" href="#basic-configuration-authenticating-with-github-api" title="Permanent link">&para;</a></h3>
+<p>Click the "Add" button next to credentials and select Jenkins as your 
+credentials provider. Create a credential of Kind "Secret Text".
+For the Secret, you will enter a Github Personal Access Token,
+which we'll cover next.</p>
+<p>Here is what the jenkins credentials provider looks like:</p>
+<p><img src="/images/jenkins-ghprb-2.png" width="500px" /></p>
+<p>To create a Github Authentication Token, log in to Github using the account
+jenkins will review PRs as. Go to the Settings page and click Developer Settings,
+then Personal acess tokens, or just visit <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a>
+once you are logged in.</p>
+<p>Now click "Generate New Token". You will see some options like those shown
+below. Configure the check boxes to match those shown in the image below:</p>
+<p><img src="/images/jenkins-ghprb-3.png" width="500px" /></p>
+<p>Now create a token. The token will only be shown once, and cannot be viewed
+again, so store it somewhere safe like a password manager.</p>
+<p>Back at the jenkins credentials provider window, enter the
+API key you generated into the "Secret" field. Leave the
+other fields blank. Click Add.</p>
+<p>Here's what the Github Pull Request Builder section of the jenkins configuration 
+page will look like once you've authenticated with Github: </p>
+<p><img src="/images/jenkins-ghprb-3.png" width="500px" /></p>
+<p>Now test the authentication mechanism by clicking Test Credentials.</p>
+<h3 id="testing-authentication-with-github">testing authentication with Github<a class="headerlink" href="#testing-authentication-with-github" title="Permanent link">&para;</a></h3>
+<p>There are several tests to run to ensure Github authentication is
+working okay.</p>
+<p>Starting from the Github Pull Request Builder section of the configuration
+page, click the Test Credentials button:</p>
+<p><img src="/images/jenkins-ghprb-4.png" width="500px" /></p>
+<p>This opens several checkboxes with options. To run the given test,
+you check the box. (Weird, I know.)</p>
+<p><img src="/images/jenkins-ghprb-5-test-1.png" width="500px" /></p>
+<p>When you check the "Test basic connection to Github" box, you'll see
+the results of checking that you can connect to Github:</p>
+<p><img src="/images/jenkins-ghprb-5-test-2.png" width="500px" /></p>
+<p>Enter a repository that your Jenkins user should have access to, 
+and then check the next checkbox, "Test Permissions to a Repository":</p>
+<p><img src="/images/jenkins-ghprb-5-test-3.png" width="500px" /></p>
+<p>For the next test, you should create a pull request in the repository
+that you entered in the text box. You can do this easily by opening
+the README file in your repository, clicking the pencil "Edit" button
+in Github, and adding an empty line at the top of the file.</p>
+<p>When you click the green submit button, make sure you select the option
+to create a new branch and start a pull request. Once you have submitted
+the change as a pull request, click the "Pull Requests" tab of the repository
+and find the pull request's number. In the example below, the pull request
+is #1:</p>
+<p><img src="/images/jenkins-ghprb-5-test-4.png" width="500px" /></p>
+<p>When you click "Comment to Issue", Jenkins will use the Github credentials
+to attempt to leave the comment specified in the text box in the pull
+request thread.</p>
+<p>Here's what it should look like if everything goes according to plan:</p>
+<p><img src="/images/jenkins-ghprb-5-test-5.png" width="500px" /></p>
                 
                   
                 
@@ -659,7 +630,7 @@ file to the <code>sites-enabled</code> folder:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../installing/" title="Installing Jenkins" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../plugins/" title="Installing Plugins" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -668,25 +639,11 @@ file to the <code>sites-enabled</code> folder:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Installing Jenkins
+                Installing Plugins
               </span>
             </div>
           </a>
         
-        
-          <a href="../configuring/" title="Configuring Jenkins" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Configuring Jenkins
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>

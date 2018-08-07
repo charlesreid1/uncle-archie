@@ -418,6 +418,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#advanced-configuration" title="advanced configuration" class="md-nav__link">
+    advanced configuration
+  </a>
+  
+</li>
+      
       
       
       
@@ -426,6 +433,42 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Jobs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs_ghprb/" title="Pull Request Builder" class="md-nav__link">
+      Pull Request Builder
+    </a>
   </li>
 
         
@@ -499,6 +542,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-configuration" title="advanced configuration" class="md-nav__link">
+    advanced configuration
+  </a>
   
 </li>
       
@@ -643,6 +693,55 @@ the pull request page:</p>
 <p>Note that the pull request can still be merged, but in the repository
 settings we can require that build checks pass before any pull requests
 can be merged.</p>
+<h2 id="advanced-configuration">advanced configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">&para;</a></h2>
+<p>The configuration never ends. Clicking the "Advanced" button reveals additional
+configuration options:</p>
+<p><img alt="Advanced config options" src="../images/jenkins-ghprb-6-config-1.png" /></p>
+<p><img alt="More advanced config options" src="../images/jenkins-ghprb-6-config-2.png" /></p>
+<p>Let's walk through what these mean.</p>
+<ul>
+<li>
+<p><strong>Request for testing phase:</strong> (default value: "Can one of the admins verify this
+  patch please?") When a new pull request is opened in the project and the author of 
+  the pull request isn't whitelisted, builder will post this message.</p>
+</li>
+<li>
+<p><strong>Accept to test phrase:</strong> (default value: "ok to test") one of the admins can
+  comment with this message to green-light this pull request for testing
+  (prevents random strangers from running code thru Jenkins tests).</p>
+</li>
+<li>
+<p><strong>Add to whitelist phrase:</strong> (default value: "add to whitelist") one of the
+  admins can reply with this message to instruct Jenkins to add the author of the 
+  PR to the whitelist.</p>
+</li>
+<li>
+<p><strong>Test phrase:</strong> (default value: "test this please") one of the admins can comment 
+  with this message to instruct Jenkins to do a one-time test run.</p>
+</li>
+<li>
+<p><strong>Skip build phrase:</strong> (default value: "skip ci") one of the admins can
+  comment with this message to instruct Jenkins not to run any tests</p>
+</li>
+<li>
+<p><strong>Crontab line:</strong> the jenkins user on the server installs its own crontab to
+  check for new jobs. crontab has a maximum resolution of 1 minute, so that's
+  the fastest you can check for new tasks.</p>
+</li>
+<li>
+<p><strong>List of GitHub labels for which the build should not be triggered:</strong> this
+  allows users to skip CI by applying a label to their pull request.</p>
+</li>
+<li>
+<p><strong>List of GitHub labels for which the build should only be triggered. (Leave
+  blank for 'any')</strong> (Self-explanatory)</p>
+</li>
+<li>
+<p><strong>Application Setup:</strong> this section allows you to update the build status
+  while the build is going on. We will leave this alone for the purposes of
+  these instructions.</p>
+</li>
+</ul>
                 
                   
                 
@@ -677,6 +776,20 @@ can be merged.</p>
             </div>
           </a>
         
+        
+          <a href="../jobs_ghprb/" title="Pull Request Builder" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Pull Request Builder
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

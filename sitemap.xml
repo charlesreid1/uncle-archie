@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>https://pages.charlesreid1.com/uncle-archie/</loc>
+     <lastmod>2018-08-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/installing/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>https://pages.charlesreid1.com/uncle-archie/how/</loc>
+     <lastmod>2018-08-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/nginx/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>https://pages.charlesreid1.com/uncle-archie/flask/</loc>
+     <lastmod>2018-08-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/configuring/</loc>
-     <lastmod>2018-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/plugins/</loc>
-     <lastmod>2018-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/plugins_ghprb/</loc>
-     <lastmod>2018-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://pages.charlesreid1.com/uncle-jenkins/jobs_ghprb/</loc>
-     <lastmod>2018-08-06</lastmod>
+     <loc>https://pages.charlesreid1.com/uncle-archie/nginx/</loc>
+     <lastmod>2018-08-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

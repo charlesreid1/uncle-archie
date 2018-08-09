@@ -2,22 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://pages.charlesreid1.com/uncle-archie/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://pages.charlesreid1.com/uncle-archie/how/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <lastmod>2018-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://pages.charlesreid1.com/uncle-archie/flask/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <lastmod>2018-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://pages.charlesreid1.com/uncle-archie/hooks/</loc>
+     <lastmod>2018-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://pages.charlesreid1.com/uncle-archie/how/</loc>
+     <lastmod>2018-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://pages.charlesreid1.com/uncle-archie/nginx/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <lastmod>2018-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://pages.charlesreid1.com/uncle-archie/payloads/</loc>
+     <lastmod>2018-08-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://pages.charlesreid1.com/uncle-archie/service/</loc>
+     <lastmod>2018-08-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

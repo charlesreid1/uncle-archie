@@ -38,7 +38,7 @@
     
     
       
-        <title>Nginx - uncle-archie</title>
+        <title>Nginx Web Server - uncle-archie</title>
       
     
     
@@ -123,7 +123,7 @@
                 uncle-archie
               </span>
               <span class="md-header-nav__topic">
-                Nginx
+                Nginx Web Server
               </span>
             
           
@@ -239,8 +239,32 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Index" class="md-nav__link">
-      Index
+    <a href=".." title="uncle-archie" class="md-nav__link">
+      uncle-archie
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../flask/" title="Flask Webhook Server" class="md-nav__link">
+      Flask Webhook Server
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../hooks/" title="Hooks" class="md-nav__link">
+      Hooks
     </a>
   </li>
 
@@ -261,18 +285,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../flask/" title="Flask" class="md-nav__link">
-      Flask
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -284,11 +296,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Nginx
+        Nginx Web Server
       </label>
     
-    <a href="./" title="Nginx" class="md-nav__link md-nav__link--active">
-      Nginx
+    <a href="./" title="Nginx Web Server" class="md-nav__link md-nav__link--active">
+      Nginx Web Server
     </a>
     
       
@@ -350,6 +362,30 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../payloads/" title="Payloads" class="md-nav__link">
+      Payloads
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../service/" title="Service" class="md-nav__link">
+      Service
+    </a>
   </li>
 
     
@@ -447,9 +483,9 @@ world beyond the proxy).</p>
 <p>A reverse proxy means that instead of "surrounding" and "wrapping"
 the client, a reverse proxy wraps the end server. That means that
 any requests for , say, <code>https://archie.mydomain.com</code> can be reverse 
-proxied to the Uncle Archie Flask server at <code>http://localhost:5000/</code>.</p>
+proxied to the Uncle Archie Flask server at <code>http://localhost:50005/</code>.</p>
 <p>The advantage of this is that Uncle Archie Flask is not accessible
-via port 5000 to outside users. Every request must pass through nginx.</p>
+via port 50005 to outside users. Every request must pass through nginx.</p>
 <h2 id="first-steps-installing-nginx">First Steps: Installing Nginx<a class="headerlink" href="#first-steps-installing-nginx" title="Permanent link">&para;</a></h2>
 <p>Using your operating system's package manager is recommended:</p>
 <div class="codehilite"><pre><span></span>apt-get install nginx
@@ -467,8 +503,8 @@ sudo service nginx stop
 </pre></div>
 
 
-<p><strong>Uncle Archie runs on port 5000 and is available at
-<code>localhost:5000</code>.</strong></p>
+<p><strong>Uncle Archie runs on port 50005 and is available at
+<code>localhost:50005</code>.</strong></p>
 <h2 id="nginx-standard-configuration">Nginx Standard Configuration<a class="headerlink" href="#nginx-standard-configuration" title="Permanent link">&para;</a></h2>
 <p>The "standard configuration" for nginx is to use port 443 for
 HTTPS, port 80 for HTTP, and to automatically redirect HTTP
@@ -513,11 +549,11 @@ server {
                       application/atom+xml;
 
     location /webhook {
-        # /webhook* anything takes user to port 5000, api
+        # /webhook* anything takes user to port 5005, api
         proxy_set_header   X-Real-IP  $remote_addr;
         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header   Host $host;
-        proxy_pass http://54.191.178.27:5000/webhook;
+        proxy_pass http://127.0.0.1:5005/webhook;
     }
 
     ### location / {
@@ -565,7 +601,7 @@ file to the <code>sites-enabled</code> folder:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../flask/" title="Flask" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../how/" title="How It Works" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -574,11 +610,25 @@ file to the <code>sites-enabled</code> folder:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Flask
+                How It Works
               </span>
             </div>
           </a>
         
+        
+          <a href="../payloads/" title="Payloads" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Payloads
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://pages.charlesreid1.com/uncle-archie/how/">
+        <link rel="canonical" href="https://pages.charlesreid1.com/uncle-archie/hooks/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>How It Works - uncle-archie</title>
+        <title>Hooks - uncle-archie</title>
       
     
     
@@ -97,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#how-it-works" tabindex="1" class="md-skip">
+      <a href="#hooks" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -123,7 +123,7 @@
                 uncle-archie
               </span>
               <span class="md-header-nav__topic">
-                How It Works
+                Hooks
               </span>
             
           
@@ -261,18 +261,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../hooks/" title="Hooks" class="md-nav__link">
-      Hooks
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -283,10 +271,65 @@
       
     
     
-    <a href="./" title="How It Works" class="md-nav__link md-nav__link--active">
-      How It Works
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Hooks
+      </label>
+    
+    <a href="./" title="Hooks" class="md-nav__link md-nav__link--active">
+      Hooks
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-hooks" title="What Are Hooks" class="md-nav__link">
+    What Are Hooks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-are-hook-functions-defined" title="How Are Hook Functions Defined?" class="md-nav__link">
+    How Are Hook Functions Defined?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-define-a-new-hook-function" title="How To Define A New Hook Function?" class="md-nav__link">
+    How To Define A New Hook Function?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../how/" title="How" class="md-nav__link">
+      How
+    </a>
   </li>
 
     
@@ -343,6 +386,36 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-hooks" title="What Are Hooks" class="md-nav__link">
+    What Are Hooks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-are-hook-functions-defined" title="How Are Hook Functions Defined?" class="md-nav__link">
+    How Are Hook Functions Defined?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-define-a-new-hook-function" title="How To Define A New Hook Function?" class="md-nav__link">
+    How To Define A New Hook Function?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -354,20 +427,27 @@
               
                 
                 
-                <h1 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h1>
-<p>Uncle Archie is a home-brewed continuous integration (CI) server.</p>
-<p>On the front end, Uncle Archie receives webhooks from Github
-via a Flask server. This webhook endpoint is installed in
-any repository that would potentially like to trigger CI 
-builds with Uncle Archie.</p>
-<p>On the back end, Uncle Archie passes each webhook to a set
-of user-defined Python functions that decide what to do.
-They implement all of the logic - finding pull requests
-against master, identifying the head commit in a branch,
-updating the status of a commit, etc etc.</p>
-<p>Uncle Archie's flask server is simply a messenger - when
-events happen in repositories, webhooks are sent to the
-flask server, which passes it along to each CI script.</p>
+                <h1 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h1>
+<h2 id="what-are-hooks">What Are Hooks<a class="headerlink" href="#what-are-hooks" title="Permanent link">&para;</a></h2>
+<p>Each incoming webhook payload is passed to a set of hook functions,
+which are Python functions that live in the <code>hooks/</code> folder.
+These are imported and called by <code>process_python.py</code>.</p>
+<h2 id="how-are-hook-functions-defined">How Are Hook Functions Defined?<a class="headerlink" href="#how-are-hook-functions-defined" title="Permanent link">&para;</a></h2>
+<p>A hook is a Python file living in the <code>hooks/</code> directory.
+it should define one method <code>process_payload()</code> with the 
+same signature as the <code>process_payload()</code> method in 
+<code>process_payload.py</code>.</p>
+<p>The new hook function should also be imported in the file
+<code>process_payload.py</code> - this contains a series of calls to
+hook functions, and this occurs for each webhook received.</p>
+<h2 id="how-to-define-a-new-hook-function">How To Define A New Hook Function?<a class="headerlink" href="#how-to-define-a-new-hook-function" title="Permanent link">&para;</a></h2>
+<p>To make a new hook function:</p>
+<ul>
+<li>Add a python file to <code>hooks/</code></li>
+<li>Define a method <code>process_payload()</code> (following <code>process_payload.py</code>)</li>
+<li>Import hook in <code>process_payload.py</code></li>
+</ul>
+<p>And you're done.</p>
                 
                   
                 
@@ -388,7 +468,7 @@ flask server, which passes it along to each CI script.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../hooks/" title="Hooks" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../flask/" title="Flask Webhook Server" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -397,19 +477,19 @@ flask server, which passes it along to each CI script.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Hooks
+                Flask Webhook Server
               </span>
             </div>
           </a>
         
         
-          <a href="../nginx/" title="Nginx" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../how/" title="How" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Nginx
+                How
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

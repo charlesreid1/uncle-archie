@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://pages.charlesreid1.com/uncle-archie/payloads/">
+        <link rel="canonical" href="https://pages.charlesreid1.com/uncle-archie/quick/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Payload Processing - uncle-archie</title>
+        <title>Quick Start - uncle-archie</title>
       
     
     
@@ -97,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#how-payloads-are-processed" tabindex="1" class="md-skip">
+      <a href="#quick-start" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -123,7 +123,7 @@
                 uncle-archie
               </span>
               <span class="md-header-nav__topic">
-                Payload Processing
+                Quick Start
               </span>
             
           
@@ -261,11 +261,45 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../quick/" title="Quick Start" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Quick Start
+      </label>
+    
+    <a href="./" title="Quick Start" class="md-nav__link md-nav__link--active">
       Quick Start
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" title="Quick Start" class="md-nav__link">
+    Quick Start
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -333,12 +367,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Payloads and Hooks
@@ -354,63 +386,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Payload Processing
-      </label>
-    
-    <a href="./" title="Payload Processing" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../payloads/" title="Payload Processing" class="md-nav__link">
       Payload Processing
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#hooks" title="Hooks" class="md-nav__link">
-    Hooks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#payload-museum" title="Payload Museum" class="md-nav__link">
-    Payload Museum
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uncle-archie-configuration-file" title="Uncle Archie Configuration File" class="md-nav__link">
-    Uncle Archie Configuration File
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -445,29 +425,13 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hooks" title="Hooks" class="md-nav__link">
-    Hooks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#payload-museum" title="Payload Museum" class="md-nav__link">
-    Payload Museum
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uncle-archie-configuration-file" title="Uncle Archie Configuration File" class="md-nav__link">
-    Uncle Archie Configuration File
+  <a href="#quick-start" title="Quick Start" class="md-nav__link">
+    Quick Start
   </a>
   
 </li>
@@ -489,43 +453,60 @@
               
                 
                 
-                <h1 id="how-payloads-are-processed">How Payloads Are Processed<a class="headerlink" href="#how-payloads-are-processed" title="Permanent link">&para;</a></h1>
-<p>Uncle Archie runs a Flask server to receive webhooks.
-Github sends webhooks in the form of JSON to the Flask
-server when events occur on Github. The JSON file contains
-lots of information about the event - the who/what/where/when/how.</p>
-<p>The JSON webhook is converted to a Python dictionary and is
-passed to the <code>process_payload()</code> function defined in 
-<code>process_payload.py</code>.  The function takes three arguments:
-the full payload, the meta-information (name of repo,
-name of branch, type of event), and the config dictionary
-coming from <code>config.json</code> (this contains the Github API
-key we need).</p>
-<h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
-<p>Each incoming webhook payload is passed to a set of hook functions,
-which are Python functions that live in the <code>hooks/</code> folder.
-These are imported and called by <code>process_python.py</code>.</p>
-<p>See <a href="../hooks/">Hooks</a> for details about how the hooks work
-and how to define new ones.</p>
-<h2 id="payload-museum">Payload Museum<a class="headerlink" href="#payload-museum" title="Permanent link">&para;</a></h2>
-<p>To see examples of payloads, visit the 
-Payload Museum in the <code>museum/</code> directory
-of the repository.</p>
-<h2 id="uncle-archie-configuration-file">Uncle Archie Configuration File<a class="headerlink" href="#uncle-archie-configuration-file" title="Permanent link">&para;</a></h2>
-<p>The configuration file <code>config.json</code> contains <strong>both</strong> Flask <strong>and</strong> 
-backend (hook-specific) configuration details.</p>
-<p>For example, the secret key for the Flask server is a key that must
-be embedded in the webhook for the webhook to be processed.
-This is a flask-specific configuration detail. But the Github
-API key for the Github bot is also specified in the configuration
-file, and that is information used by the hook functions.</p>
-<p>API keys are sensitive information so this file 
-should be kept secret (hence it is in <code>.gitignore</code>).</p>
-<p>The config is loaded by the Flask application, since it contains
-flask-specific configuration details. The configuration is then
-handed off to the process payload function, which passes it on 
-to each hook function.</p>
-<p>It is avialable via the variable <code>conf</code>.</p>
+                  <h1>Quick Start</h1>
+                
+                <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>To get started, run the Uncle Archie Flask server:</p>
+<div class="codehilite"><pre><span></span>python uncle_archie.py
+</pre></div>
+
+
+<p>This will use the available/built-in Python functions as
+payload-processing hooks.</p>
+<p>To create your own custom function that processes payload hooks,
+define a custom function that takes the payload, a dictionary
+of meta-info (repo, branch name, and action name), and the 
+configuration dictionary:</p>
+<div class="codehilite"><pre><span></span>def process_payload(payload, meta, config):
+    # Do some stuff here, 
+    # like use the payload to see
+    # if this is an event we are 
+    # interested in, or create a 
+    # Github API instance.
+    pass
+</pre></div>
+
+
+<p>Put this in a Python file in the the <code>hooks/</code> directory:</p>
+<div class="codehilite"><pre><span></span>cat &gt; hooks/my_cool_hook.py &lt;&lt;EOF
+def process_payload(payload, meta, config):
+    # Do some stuff here, 
+    # like use the payload to see
+    # if this is an event we are 
+    # interested in, or create a 
+    # Github API instance.
+    pass
+EOF
+</pre></div>
+
+
+<p>Now edit <code>process_payload.py</code> in the repo so that it loads
+this new hook:</p>
+<div class="codehilite"><pre><span></span># ...
+# other import statements
+# ...
+from hooks.my_cool_hook import process_payload as my_cool_hook
+
+def process_payload(payload,meta,config):
+    # ...
+    # other function calls
+    # ...
+    my_cool_hook(payload,meta,config)
+</pre></div>
+
+
+<p>Uncle Archie will now call the new hook every time an incoming webhook
+is received by the Flask server.</p>
                 
                   
                 
@@ -546,7 +527,7 @@ to each hook function.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../service/" title="Startup Service" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../how/" title="How It Works" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -555,19 +536,19 @@ to each hook function.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Startup Service
+                How It Works
               </span>
             </div>
           </a>
         
         
-          <a href="../hooks/" title="Hook Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../flask/" title="Flask" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Hook Functions
+                Flask
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

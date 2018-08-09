@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "uncle-archie\n\u00b6\n\n\n\n\nUncle Archie\n is a home-brewed continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy). It is written in Python\nand uses PyGithub.\n\n\nUncle Archie\n is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires that the server running \nUncle Archie be accessible via a domain name, and not just a bare \nIP address.\n\n\nDocumentation: \nhttps://pages.charlesreid1.com/uncle-archie\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-archie\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-archie\n\n\nTable of Contents\n\u00b6\n\n\n\n\nHow It Works\n\n\n\n\nDevOps:\n\n\n\n\n\n\nFlask Webhook Server\n\n\n\n\n\n\nNginx Web Server\n\n\n\n\n\n\nUncle Archie Startup Service\n\n\n\n\n\n\nPayloads and Hooks and Things:\n\n\n\n\n\n\nHow Payloads Are Processed\n\n\n\n\n\n\nCreating Payload Hooks",
+            "text": "uncle-archie\n\u00b6\n\n\n\n\nUncle Archie\n is a home-brewed continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy). It is written in Python\nand uses PyGithub.\n\n\nUncle Archie\n is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires that the server running \nUncle Archie be accessible via a domain name, and not just a bare \nIP address.\n\n\nDocumentation: \nhttps://pages.charlesreid1.com/uncle-archie\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-archie\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-archie\n\n\nTable of Contents\n\u00b6\n\n\n\n\n\n\nHow It Works\n\n\n\n\n\n\nQuick Start\n\n\n\n\n\n\nDevOps:\n\n\n\n\n\n\nFlask Webhook Server\n\n\n\n\n\n\nNginx Web Server\n\n\n\n\n\n\nUncle Archie Startup Service\n\n\n\n\n\n\nPayloads and Hooks and Things:\n\n\n\n\n\n\nHow Payloads Are Processed\n\n\n\n\n\n\nCreating Payload Hooks",
             "title": "Index"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-contents",
-            "text": "How It Works   DevOps:    Flask Webhook Server    Nginx Web Server    Uncle Archie Startup Service    Payloads and Hooks and Things:    How Payloads Are Processed    Creating Payload Hooks",
+            "text": "How It Works    Quick Start    DevOps:    Flask Webhook Server    Nginx Web Server    Uncle Archie Startup Service    Payloads and Hooks and Things:    How Payloads Are Processed    Creating Payload Hooks",
             "title": "Table of Contents"
         },
         {
@@ -24,6 +24,16 @@
             "location": "/how/#how-it-works",
             "text": "Uncle Archie is a home-brewed continuous integration (CI) server.  On the front end, Uncle Archie receives webhooks from Github\nvia a Flask server. This webhook endpoint is installed in\nany repository that would potentially like to trigger CI \nbuilds with Uncle Archie.  On the back end, Uncle Archie passes each webhook to a set\nof user-defined Python functions that decide what to do.\nThey implement all of the logic - finding pull requests\nagainst master, identifying the head commit in a branch,\nupdating the status of a commit, etc etc.  Uncle Archie's flask server is simply a messenger - when\nevents happen in repositories, webhooks are sent to the\nflask server, which passes it along to each CI script.",
             "title": "How It Works"
+        },
+        {
+            "location": "/quick/",
+            "text": "Quick Start\n\u00b6\n\n\nTo get started, run the Uncle Archie Flask server:\n\n\npython uncle_archie.py\n\n\n\n\n\nThis will use the available/built-in Python functions as\npayload-processing hooks.\n\n\nTo create your own custom function that processes payload hooks,\ndefine a custom function that takes the payload, a dictionary\nof meta-info (repo, branch name, and action name), and the \nconfiguration dictionary:\n\n\ndef process_payload(payload, meta, config):\n    # Do some stuff here, \n    # like use the payload to see\n    # if this is an event we are \n    # interested in, or create a \n    # Github API instance.\n    pass\n\n\n\n\n\nPut this in a Python file in the the \nhooks/\n directory:\n\n\ncat > hooks/my_cool_hook.py <<EOF\ndef process_payload(payload, meta, config):\n    # Do some stuff here, \n    # like use the payload to see\n    # if this is an event we are \n    # interested in, or create a \n    # Github API instance.\n    pass\nEOF\n\n\n\n\n\nNow edit \nprocess_payload.py\n in the repo so that it loads\nthis new hook:\n\n\n# ...\n# other import statements\n# ...\nfrom hooks.my_cool_hook import process_payload as my_cool_hook\n\ndef process_payload(payload,meta,config):\n    # ...\n    # other function calls\n    # ...\n    my_cool_hook(payload,meta,config)\n\n\n\n\n\nUncle Archie will now call the new hook every time an incoming webhook\nis received by the Flask server.",
+            "title": "Quick Start"
+        },
+        {
+            "location": "/quick/#quick-start",
+            "text": "To get started, run the Uncle Archie Flask server:  python uncle_archie.py  This will use the available/built-in Python functions as\npayload-processing hooks.  To create your own custom function that processes payload hooks,\ndefine a custom function that takes the payload, a dictionary\nof meta-info (repo, branch name, and action name), and the \nconfiguration dictionary:  def process_payload(payload, meta, config):\n    # Do some stuff here, \n    # like use the payload to see\n    # if this is an event we are \n    # interested in, or create a \n    # Github API instance.\n    pass  Put this in a Python file in the the  hooks/  directory:  cat > hooks/my_cool_hook.py <<EOF\ndef process_payload(payload, meta, config):\n    # Do some stuff here, \n    # like use the payload to see\n    # if this is an event we are \n    # interested in, or create a \n    # Github API instance.\n    pass\nEOF  Now edit  process_payload.py  in the repo so that it loads\nthis new hook:  # ...\n# other import statements\n# ...\nfrom hooks.my_cool_hook import process_payload as my_cool_hook\n\ndef process_payload(payload,meta,config):\n    # ...\n    # other function calls\n    # ...\n    my_cool_hook(payload,meta,config)  Uncle Archie will now call the new hook every time an incoming webhook\nis received by the Flask server.",
+            "title": "Quick Start"
         },
         {
             "location": "/flask/",

@@ -323,6 +323,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#port-and-bind-address" title="Port and Bind Address" class="md-nav__link">
+    Port and Bind Address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#routes" title="Routes" class="md-nav__link">
     Routes
   </a>
@@ -445,6 +452,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#port-and-bind-address" title="Port and Bind Address" class="md-nav__link">
+    Port and Bind Address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#routes" title="Routes" class="md-nav__link">
     Routes
   </a>
@@ -479,6 +493,10 @@
 <p>The first component of Uncle Archie is the flask webhook server.
 This is a server with one endpoint whose sole function is to 
 receive and process webhooks from any number of repositories.</p>
+<h2 id="port-and-bind-address">Port and Bind Address<a class="headerlink" href="#port-and-bind-address" title="Permanent link">&para;</a></h2>
+<p>Uncle Archie listens on port 5005.</p>
+<p>Uncle Archie binds to <code>127.0.0.1:5005</code> on the host.</p>
+<p>(Note: this is important for the <a href="../nginx/">Nginx</a> setup.)</p>
 <h2 id="routes">Routes<a class="headerlink" href="#routes" title="Permanent link">&para;</a></h2>
 <p>The Uncle Archie Flask server has one endpoint, <code>/webhook</code>. That is
 where all webhooks should be sent. If your Uncle Archie server is

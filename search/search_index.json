@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "uncle-archie\n\u00b6\n\n\n\n\nUncle Archie\n is a home-brewed continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy). It is written in Python\nand uses PyGithub.\n\n\nUncle Archie\n is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires that the server running \nUncle Archie be accessible via a domain name, and not just a bare \nIP address.\n\n\nDocumentation: \nhttps://pages.charlesreid1.com/uncle-archie\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-archie\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-archie\n\n\nTable of Contents\n\u00b6\n\n\nUncle Archie:\n\n\n\n\n\n\nHow It Works\n\n\n\n\n\n\nQuick Start\n\n\n\n\n\n\nDevOps:\n\n\n\n\n\n\nFlask Webhook Server\n\n\n\n\n\n\nNginx Web Server\n\n\n\n\n\n\nUncle Archie Startup Service\n\n\n\n\n\n\nPayloads and Hooks and Things:\n\n\n\n\n\n\nHow Payloads Are Processed\n\n\n\n\n\n\nCreating Payload Hooks",
+            "text": "uncle-archie\n\u00b6\n\n\n\n\nUncle Archie\n is a home-brewed continuous integration server.\nIt handles pull request checks (build-test) and push-to-deploy \nfunctionality (build-test-deploy). It is written in Python\nand uses PyGithub.\n\n\nUncle Archie\n is intended to run behind an nginx reverse proxy\nso that SSL can be used. This requires that the server running \nUncle Archie be accessible via a domain name, and not just a bare \nIP address.\n\n\nDocumentation: \nhttps://pages.charlesreid1.com/uncle-archie\n\n\nSource code: \nhttps://git.charlesreid1.com/bots/uncle-archie\n\n\nSource code mirror: \nhttps://github.com/charlesreid1/uncle-archie\n\n\nTable of Contents\n\u00b6\n\n\nUncle Archie:\n\n\n\n\n\n\nHow It Works\n\n\n\n\n\n\nQuick Start\n\n\n\n\n\n\nDevOps:\n\n\n\n\n\n\nFlask Webhook Server\n\n\n\n\n\n\nNginx Web Server\n\n\n\n\n\n\nUncle Archie Startup Service\n\n\n\n\n\n\nPayloads and Hooks and Things:\n\n\n\n\n\n\nHow Payloads Are Processed\n\n\n\n\n\n\nCreating Payload Hooks\n\n\n\n\n\n\nAcknowledgements",
             "title": "Index"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-contents",
-            "text": "Uncle Archie:    How It Works    Quick Start    DevOps:    Flask Webhook Server    Nginx Web Server    Uncle Archie Startup Service    Payloads and Hooks and Things:    How Payloads Are Processed    Creating Payload Hooks",
+            "text": "Uncle Archie:    How It Works    Quick Start    DevOps:    Flask Webhook Server    Nginx Web Server    Uncle Archie Startup Service    Payloads and Hooks and Things:    How Payloads Are Processed    Creating Payload Hooks    Acknowledgements",
             "title": "Table of Contents"
         },
         {
@@ -154,6 +154,16 @@
             "location": "/hooks/#how-to-define-a-new-hook-function",
             "text": "To make a new hook function:   Add a python file to  hooks/  Define a method  process_payload()  (following  process_payload.py )  Import hook in  process_payload.py   And you're done.",
             "title": "How To Define A New Hook Function?"
+        },
+        {
+            "location": "/ack/",
+            "text": "Acknowledgements\n\u00b6\n\n\nUncle Archie the home-brewed CI server is implemented\nin \nPython\n\nusing \nFlask\n\nto provide a front-end web server and\n\nPyGithub\n\nand \nrequests\n\nto interact with the Github API.\n\n\nUncle Archie is based largely on \n\nCaptain Hook\n,\nwhich is itself inspired by and forked from\n\ncarlos-jenkins/python-github-webhooks\n\non Github.",
+            "title": "Acknowledgements"
+        },
+        {
+            "location": "/ack/#acknowledgements",
+            "text": "Uncle Archie the home-brewed CI server is implemented\nin  Python \nusing  Flask \nto provide a front-end web server and PyGithub \nand  requests \nto interact with the Github API.  Uncle Archie is based largely on  Captain Hook ,\nwhich is itself inspired by and forked from carlos-jenkins/python-github-webhooks \non Github.",
+            "title": "Acknowledgements"
         }
     ]
 }

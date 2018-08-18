@@ -1,4 +1,4 @@
-# Activating Hooks in Github
+# Adding Hooks in Github
 
 Once you have written a new Uncle Archie hook, it is being called 
 from `process_payload.py`, and the Uncle Archie flask server has 

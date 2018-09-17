@@ -31,12 +31,13 @@ class GithubTask(UncleArchieTask):
         """
         Get the API key for the Github API instance
         """
-        if 'github_access_token' in config:
-            self.token = config['github_access_token']
+        if 'GITHUB_ACCESS_TOKEN' in config:
+            self.token = config['GITHUB_ACCESS_TOKEN']
         else:
             err = "ERROR: GithubTask: __init__(): github_access_token config variable: "
             err += "No Github API access token defined with 'github_access_token'"
             logging.error(err)
+            logging.error(config)
             raise Exception(err)
 
         msg = "  - Github API key: (FOUND) (hidden)"
@@ -261,8 +262,8 @@ class PyGithubTask(UncleArchieTask):
 
         # Get virtual environment label 
         # from config or use default
-        if 'venv_label' in config.keys():
-            self.venv_label = config['venv_label']
+        if 'VENV_LABEL' in config.keys():
+            self.venv_label = config['VENV_LABEL']
         else:
             self.venv_label = VENV_LABEL
 

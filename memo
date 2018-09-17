@@ -1,0 +1,15 @@
+nosetests not working
+b/c bash caching executable
+hash -r
+
+--------
+
+tests are uncovering an issue with the config file
+
+we create the flask app when the library is imported
+but it doesn't have the config file at that time
+the config file is either set with a method,
+or the library just looks for one named config.json
+
+but how can the library get the path to
+where the 

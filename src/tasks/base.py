@@ -61,7 +61,7 @@ class UncleArchieTask(object):
         self.get_base_url(config)
 
         # Get the value of the debug variable
-        self.get_debug(config)
+        self.get_testing(config)
 
         # The following require a LABEL
         # to be defined by the parent class.
@@ -95,8 +95,8 @@ class UncleArchieTask(object):
         Get the log directory from the Flask
         config, and create it if needed.
         """
-        if 'log_dir' in config.keys():
-            self.log_dir = config['log_dir']
+        if 'LOG_DIR' in config.keys():
+            self.log_dir = config['LOG_DIR']
         else:
             self.log_dir = self.DEFAULT_LOG_DIR
 
@@ -118,8 +118,8 @@ class UncleArchieTask(object):
         Get the htdocs directory from the Flask
         config, and check that it exists
         """
-        if 'htdocs_dir' in config.keys():
-            self.htdocs_dir = config['htdocs_dir']
+        if 'HTDOCS_DIR' in config.keys():
+            self.htdocs_dir = config['HTDOCS_DIR']
         else:
             self.htdocs_dir = self.DEFAULT_HTDOCS_DIR
 
@@ -138,8 +138,8 @@ class UncleArchieTask(object):
         """
         Get the base url from the Flask config
         """
-        if 'base_url' in config.keys():
-            self.base_url = config['base_url']
+        if 'BASE_URL' in config.keys():
+            self.base_url = config['BASE_URL']
         else:
             self.base_url = self.DEFAULT_BASE_URL
 
@@ -147,16 +147,16 @@ class UncleArchieTask(object):
         logging.debug(msg)
 
 
-    def get_debug(self,config):
+    def get_testing(self,config):
         """
         Get a boolean indicating whether 
         Uncle Archie is running in debug
         mode (default: no)
         """
         self.debug = False
-        if 'debug' in config.keys():
-            if config['debug'] is True:
-                self.debug = True
+        if 'TESTING' in config.keys():
+            if config['TESTING'] is True:
+                self.testing = True
 
 
     def get_name(self,config,task_label):
@@ -166,9 +166,10 @@ class UncleArchieTask(object):
         config file, use the task label by default.
         """
         self.name = None
-        if task_label in config.keys():
-            if 'name' in config[task_label].keys():
-                self.name = config[task_label]['name']
+        task_label_u = task_label.upper()
+        if task_label_u in config.keys():
+            if 'name' in config[task_label_u].keys():
+                self.name = config[task_label_u]['name']
 
         if self.name==None:
             self.name = task_label
@@ -185,9 +186,10 @@ class UncleArchieTask(object):
         an empty list.
         """
         self.repo_whitelist = []
-        if task_label in config.keys():
-            if 'repo_whitelist' in config[task_label].keys():
-                self.repo_whitelist = config[task_label]['repo_whitelist']
+        task_label_u = task_label.upper()
+        if task_label_u in config.keys():
+            if 'repo_whitelist' in config[task_label_u].keys():
+                self.repo_whitelist = config[task_label_u]['repo_whitelist']
 
                 # listify
                 if type(self.repo_whitelist)==type(""):
